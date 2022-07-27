@@ -1,0 +1,4 @@
+<p> Este es el componente padre </p>
+<p> {{ mensajeObtenido }} </p>
+<button (click)="cambiarDatos()">Cambiar Datos</button>
+<app-hijo1 [listaEstudiantesHijo]="listaEstudiantesPadre" (eventoSalida)="obtenerInformacion($event)"></app-hijo1>

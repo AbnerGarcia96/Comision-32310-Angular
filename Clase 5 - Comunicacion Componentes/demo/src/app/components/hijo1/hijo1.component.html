@@ -1,0 +1,10 @@
+<p>hijo1 works!</p>
+<div>
+    <p> Estoy desde el componente hijo </p>
+
+    <ul>
+        <li *ngFor="let estudiante of listaEstudiantesHijo"> 
+            <app-hijo2 [nombreEstudiante]="estudiante" (eventoSalida)="obtenerEventoSalida($event)"></app-hijo2>
+        </li>
+    </ul>
+</div>
