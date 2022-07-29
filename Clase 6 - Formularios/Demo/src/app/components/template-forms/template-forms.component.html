@@ -1,0 +1,16 @@
+<h1>Formulario basado en plantillas</h1>
+<form> 
+    <label>Nombre: </label>
+    <input type="text" [(ngModel)]="contactoModel.nombre" name="nombre" #txtNombre>
+    <br>
+
+    <label>Correo: </label>
+    <input type="text" [(ngModel)]="contactoModel.correo" name="correo">
+    <br>
+
+    <label>Mensaje: </label>
+    <input type="text" [(ngModel)]="contactoModel.mensaje" name="mensaje">
+    <br>
+
+    <button (click)="enviarContacto()">Enviar</button>
+</form>

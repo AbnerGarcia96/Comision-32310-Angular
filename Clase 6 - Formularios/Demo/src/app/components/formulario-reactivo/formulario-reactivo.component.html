@@ -1,0 +1,21 @@
+<h1>Formulario reactivo</h1>
+
+<form [formGroup]="formularioContacto" (ngSubmit)="enviarContacto()">
+    <label>Nombre: </label>
+    <input type="text" formControlName="nombre">
+    <p *ngIf="formularioContacto.get('nombre')?.errors?.['required']">Este campo es obligatorio</p>
+    <br>
+
+    <label>Correo: </label>
+    <input type="text" formControlName="email">
+    <p *ngIf="formularioContacto.get('email')?.errors?.['required']">Este campo es obligatorio</p>
+    <p *ngIf="formularioContacto.get('email')?.errors?.['email']">Este campo debe tener un formato de correo</p>
+    <br>
+
+    <label>Mensaje: </label>
+    <input type="text" formControlName="mensaje">
+    <p *ngIf="formularioContacto.get('mensaje')?.errors?.['required']">Este campo es obligatorio</p>
+    <br>
+
+    <button type="submit" [disabled]="!formularioContacto.valid">Enviar</button>
+</form>
