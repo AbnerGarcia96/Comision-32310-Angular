@@ -1,3 +1,8 @@
+<mat-form-field>
+    <mat-label>Buscar</mat-label>
+    <input type="text" (keyup)="filtrar($event)" matInput>
+</mat-form-field>
+
 <table mat-table [dataSource]="dataSource">
     <!-- Columna Nombre -->
     <ng-container matColumnDef="nombre">

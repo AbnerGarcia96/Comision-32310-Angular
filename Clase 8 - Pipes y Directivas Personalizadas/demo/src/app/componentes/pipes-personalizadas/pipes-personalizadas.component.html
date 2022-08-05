@@ -1,0 +1,7 @@
+<h1>Pipes personalizadas</h1>
+
+<div *ngFor="let curso of cursos">
+    <h3>Nombre del curso: {{ curso.nombre }}</h3>
+    <p>Duracion: {{ curso.duracion | transformar:'uppercase':'otra cadena' }}</p>
+    <p>descripcion: {{ curso.descripcion }} </p>
+</div>

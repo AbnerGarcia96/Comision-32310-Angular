@@ -25,12 +25,14 @@ export class EditarDialogComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
   actualizar(){
-
+    this.dialogRef.close(this.formulario.value);
   }
 
-  cerrar(){}
+  cerrar(){
+    this.dialogRef.close();
+  }
 }

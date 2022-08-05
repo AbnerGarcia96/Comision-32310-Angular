@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { EditarDialogComponent } from '../editar-dialog/editar-dialog.component';
 
 export interface Curso { 
@@ -29,6 +29,8 @@ const ELEMENT_DATA: Curso[] = [
 export class TablaComponent implements OnInit {
   columnas: string[] = ['nombre', 'comision', 'profesor', 'numeroEstudiantes', 'matriculaAbierta', 'acciones'];
   dataSource: MatTableDataSource<Curso> = new MatTableDataSource(ELEMENT_DATA);
+  @ViewChild(MatTable) tabla!: MatTable<Curso>;
+  
   constructor(
     private dialog: MatDialog
   ) { }
@@ -45,5 +47,19 @@ export class TablaComponent implements OnInit {
       width: '350px',
       data: elemento
     });
+
+    dialogRef.afterClosed().subscribe(resultado => {
+      if(resultado){
+        const item = this.dataSource.data.find(curso => curso.comision === resultado.comision);
+        const index = this.dataSource.data.indexOf(item!);
+        this.dataSource.data[index] = resultado;
+        this.tabla.renderRows();
+      }
+    })
+  }
+
+  filtrar(event: Event){
+    const valorObtenido = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = valorObtenido.trim().toLocaleLowerCase();
   }
 }
