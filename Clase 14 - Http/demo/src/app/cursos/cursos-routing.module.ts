@@ -8,9 +8,8 @@ import { NuevoComponent } from './components/nuevo/nuevo.component';
 const routes: Routes = [
   {path: '', component: CursosComponent ,children: [
     {path: 'lista', component: ListaCursosComponent},
-    {path: 'nuevo', component: NuevoComponent, canDeactivate: [AdminGuard]}
-  ],
-  canActivateChild: [AdminGuard]}
+    {path: 'nuevo', component: NuevoComponent, canActivate: [AdminGuard]}
+  ]}
 ];
 
 @NgModule({

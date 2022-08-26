@@ -13,10 +13,7 @@ export class LoginComponent implements OnInit {
   formulario: FormGroup = new FormGroup({
     usuario: new FormControl('abner', [Validators.required]),
     contrasena: new FormControl('1234', [Validators.required]),
-    admin: new FormControl(false),
-    canActivateChild: new FormControl(false),
-    canLoad: new FormControl(false),
-    canDeactivate:new FormControl(false)
+    admin: new FormControl(true)
   });
 
   constructor(
@@ -32,9 +29,7 @@ export class LoginComponent implements OnInit {
       usuario: this.formulario.value.usuario,
       contrasena: this.formulario.value.contrasena,
       admin: this.formulario.value.admin,
-      canActivateChild: this.formulario.value.canActivateChild,
-      canLoad: this.formulario.value.canLoad,
-      canDeactivate: this.formulario.value.canDeactivate
+      id: '1'
     }
 
     this.auth.iniciarSesion(usuario);
