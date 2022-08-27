@@ -1,0 +1,12 @@
+{{ sesion$ | async | json }} <br>
+
+<ng-container *ngIf="sesion$ | async as sesion">
+  <div *ngIf="sesion.sesionActiva">
+    <a routerLink="/">Inicio</a> |
+    <a routerLink="/cursos">Cursos</a> |
+    <a routerLink="/cursos/lista">Lista Cursos</a> |
+    <a routerLink="/cursos/nuevo">Nuevo Curso</a> |
+    <a (click)="cerrarSesion()">Cerrar sesion</a>
+  </div>
+</ng-container>
+<router-outlet></router-outlet>

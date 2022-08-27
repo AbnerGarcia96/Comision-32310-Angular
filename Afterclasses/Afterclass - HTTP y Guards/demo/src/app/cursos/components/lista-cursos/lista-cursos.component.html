@@ -1,0 +1,13 @@
+<h4>Lista Cursos</h4>
+
+<div *ngFor="let curso of cursos$ | async">
+    <mat-card>
+        <mat-card-title>{{ curso.id }} - {{ curso.nombre }}</mat-card-title>
+        <mat-card-subtitle>Impartido por {{ curso.profesor }} del {{ curso.fechaInicio | date: 'dd/MM/yyyy' }} al {{ curso.fechaFin | date: 'dd/MM/yyyy' }}</mat-card-subtitle>
+        <mat-card-actions align="end">
+            <button mat-flat-button color="primary" (click)="abrirDialog(curso)">Editar</button>
+            <button mat-flat-button color="warn" (click)="eliminar(curso.id)">Eliminar</button>
+        </mat-card-actions>
+    </mat-card>
+    <br>
+</div>
