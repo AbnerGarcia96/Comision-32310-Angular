@@ -1,0 +1,12 @@
+<p>Cursos</p>
+
+<form [formGroup]="formulario" (ngSubmit)="agregarCurso()">
+    <input type="text" formControlName="nombre" placeholder="Nombre del curso">
+    <input type="text" formControlName="profesor" placeholder="Profesor"> <br>
+    <button id="btnCrear" type="submit">Agregar curso</button>
+</form>
+
+<div id="lista-cursos" *ngIf="cursos.length > 0">
+    Cursos:
+    <pre>{{ cursos | json }}</pre>
+</div>
