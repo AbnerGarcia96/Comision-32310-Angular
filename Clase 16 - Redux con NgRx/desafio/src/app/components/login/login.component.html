@@ -1,0 +1,5 @@
+<form [formGroup]="formulario" (ngSubmit)="login()">
+    <input type="text" placeholder="Usuario" formControlName="usuario"> <br>
+    <input type="text" placeholder="Contrasena" formControlName="contrasena"> <br>
+    <button type="submit">Login</button>
+</form>

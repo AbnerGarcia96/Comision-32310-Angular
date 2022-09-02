@@ -1,0 +1,5 @@
+<b *ngIf="(cargando$ | async)">Cargando...</b>
+<div *ngIf="!(cargando$ | async)">
+    <p>Página de cursos</p>
+    <app-lista></app-lista>
+</div>
