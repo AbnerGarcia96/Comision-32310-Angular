@@ -1,0 +1,7 @@
+<h4>Módulo de Cursos</h4>
+<hr>
+<div *ngIf="(cargando$ | async)">
+    <mat-spinner></mat-spinner>
+    <b>Cargando...</b>
+</div>
+<app-lista-cursos *ngIf="!(cargando$ | async)"></app-lista-cursos>

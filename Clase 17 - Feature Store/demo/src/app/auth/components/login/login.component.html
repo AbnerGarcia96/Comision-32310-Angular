@@ -1,0 +1,15 @@
+<h4>Iniciar Sesion</h4>
+<hr>
+<form [formGroup]="formulario" (ngSubmit)="login()">
+    <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput type="text" formControlName="usuario">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Contrasena</mat-label>
+        <input matInput type="password" formControlName="contrasena">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" [disabled]="formulario.invalid">Login</button>
+</form>
