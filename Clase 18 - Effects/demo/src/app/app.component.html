@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" *ngIf="(sesionActiva$ | async)">
+    <ng-container *ngIf="usuarioActivo$ | async as usuario">
+        <span>Demo Redux con NgRx - {{ ruta }} - {{ usuario.usuario }}</span>
+    </ng-container>
+    <span class="espacio"></span>
+    <button mat-button routerLink="">Inicio</button>
+    <button mat-button routerLink="cursos">Cursos</button>
+    <button mat-button routerLink="cursos/crear" *ngIf="(usuarioAdmin$ | async)">Crear Cursos</button>
+    <button mat-button (click)="cerrarSesion()">Cerrar Sesion</button>
+</mat-toolbar>
+<router-outlet></router-outlet>
